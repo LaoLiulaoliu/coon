@@ -1,0 +1,51 @@
+#co-wrap {
+  width: 960px;
+  margin: auto;
+}
+
+#co-wrap .name {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  word-wrap: break-word;
+  color: #494949;
+  padding: 0px 0px 15px 0px;
+}
+
+#co-wrap .info {
+  overflow: hidden;
+}
+
+#co-wrap .portrait {
+  float: left;
+  padding-right: 15px;
+}
+
+#co-wrap .portrait .coedit {
+  text-align: center;
+  cursor: pointer;
+}
+#co-wrap .portrait .coedit a {
+  font-size: 12px;
+  color: #bbb;
+}
+
+#co-wrap .description {
+  word-wrap: break-word;
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+#co-wrap .description span {
+  color: #666;
+}
+
+#co-wrap .reviews {
+  margin-top: 20px;
+}
+
+#co-wrap .reviews .title {
+  float: left;
+  margin-right: 200px;
+}
+#co-wrap .reviews .new_reviews {
+}

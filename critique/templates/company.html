@@ -1,0 +1,73 @@
+{% extends 'header.html' %}
+
+{% block wrapper %}
+<link rel="stylesheet" type="text/css" href="/static/css/company.css">
+
+<div id="co-wrap">
+  <div class="name"><h1>{{ context.name }}</h1></div>
+  <div class="info">
+
+    <div class="portrait">
+    {% if context.portrait %}
+      <a class="img" title="{{ context.name }}" href="{{ context.portrait }}">
+        <img class="company-logo" width="200px" height="100px" src="{{ context.portrait }}" alt="{{ context.name }}" />
+      </a>
+      <p class="coedit"><a href="{% url 'coedit' context.id %}">更新描述或封面</a></p>
+    {% endif %}
+    </div>
+
+    <div class="description">
+      {% if context.class %}
+      <span>经营类型：</span>{% for i in context.class %}{{ i }}&nbsp;&nbsp;&nbsp;&nbsp;{% endfor %}
+      {% endif %}
+      <br />
+
+      {% if context.webpage %}
+      <span>企业官网：</span>{{ context.webpage }}
+      {% endif %}
+      <br />
+
+      {% if context.build_time %}
+      <span>成立时间：</span>{{ context.build_time }}
+      {% endif %}
+      <br />
+
+      {% if context.address %}
+      <span>总部地址：</span>{{ context.address }}
+      {% endif %}
+      <br />
+
+      {% if context.dept %}
+      <span>企业部门：</span>{% for i in context.dept %}{{ i }}&nbsp;&nbsp;&nbsp;&nbsp;{% endfor %}
+      {% endif %}
+      <br />
+
+      {% if context.tag %}
+      <span>标签：</span>{% for i in context.tag %}{{ i }}&nbsp;&nbsp;&nbsp;&nbsp;{% endfor %}
+      {% endif %}
+      <br />
+    </div>
+
+  </div>
+
+  <div class="reviews">
+    <div class="title">吐槽。。。</div>
+    <div class="new_review">
+      <a href="">我来点评</a>
+    </div>
+    <hr />
+    <ul>
+    {% for i in comments %}
+      <li class="item">
+        {{ i.nick }}&nbsp;&nbsp;&nbsp;&nbsp; rating:{{ i.rating  }}
+        <br>
+        {{ i.content }}
+        <br>
+        {{ i.pub_time }}
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

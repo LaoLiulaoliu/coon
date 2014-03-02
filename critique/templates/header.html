@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+  <div id="topnav">
+    <ul class="nav-ul">
+      <li class="nav-li">
+        <a class="nav-link" href="/homepage.html">首页</a>
+      </li>
+      <li class="nav-li">
+        <a class="nav-link" target="_blank" href="suggest.html" title="很有帮助呦 o(∩_∩)O ~">亲，给点意见吧</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="nav-wrap">
+    <div class="nav-primary">
+      <div class="nav-logo">
+        <h1><a href="#">离职点评</a></h1>
+      </div>
+      <div class="nav-search">
+        <form action="search.html" method="get">
+          <fieldset>
+            <legend>搜索：</legend>
+            <label for="inp-query" style="display: none;">公司名</label>
+            <input id="inp-query" maxlength="64" placeholder="公司名"></input>
+            <input type="submit" class="search_submit" value></input>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
