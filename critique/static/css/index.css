@@ -103,17 +103,11 @@ img:hover {
 #content .company .show {
   float: left;
   padding: 10px 10px;
-  width: 150px;
-  height: 200px;
-}
-
-#content .company .show .company-logo {
-  width: 150px;
-  height: 200px;
+  width: 170px;
+  height: 100px;
 }
 
 #content .company .show .text {
-  margin: 0px 0px 0px 10px;
   cursor: pointer;
 }
 
@@ -122,3 +116,6 @@ img:hover {
   text-shadow: 0px 1px 3px #000000;
 }
 
+#content .company .show .text a.brief {
+  text-overflow: ellipsis;
+}

@@ -8,3 +8,10 @@
 .allstar15 { background-position: 0 -77px; }
 .allstar10 { background-position: 0 -88px; }
 .allstar05 { background-position: 0 -99px; }
+
+.allstar50,.allstar50,.allstar45,.allstar40,.allstar35,.allstar30,.allstar25,.allstar20,.allstar15,.allstar10,.allstar05 {
+  display: inline-block;
+  width: 55px;
+  height: 11px;
+  background: url("/static/img/stars.gif") no-repeat;
+}

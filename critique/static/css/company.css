@@ -1,3 +1,6 @@
+@import url(init.css);
+@import url(stars.css);
+
 #co-wrap {
   width: 960px;
   margin: auto;
@@ -48,4 +51,8 @@
   margin-right: 200px;
 }
 #co-wrap .reviews .new_reviews {
+}
+
+
+#co-wrap .reviews .review_list .rating {
 }

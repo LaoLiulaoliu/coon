@@ -8,12 +8,10 @@
   <div class="info">
 
     <div class="portrait">
-    {% if context.portrait %}
-      <a class="img" title="{{ context.name }}" href="{{ context.portrait }}">
-        <img class="company-logo" width="200px" height="100px" src="{{ context.portrait }}" alt="{{ context.name }}" />
+      <a class="img" title="{{ context.name }}" {% if context.portrait %} href="{{ context.portrait }}" {% endif %}>
+        <img class="company-logo" width="200px" height="100px" {% if context.portrait %} src="{{ context.portrait }}" {% endif %} alt="{{ context.name }}" />
       </a>
       <p class="coedit"><a href="{% url 'coedit' context.id %}">更新描述或封面</a></p>
-    {% endif %}
     </div>
 
     <div class="description">
@@ -56,10 +54,11 @@
       <a href="">我来点评</a>
     </div>
     <hr />
-    <ul>
+    <ul class="review_list">
     {% for i in comments %}
       <li class="item">
-        {{ i.nick }}&nbsp;&nbsp;&nbsp;&nbsp; rating:{{ i.rating  }}
+        <span class="nickname"> {{ i.nick }}&nbsp;&nbsp;&nbsp;&nbsp; </span>
+        <span class="rating allstar{% widthratio i.rating 1 10 %}">  </span>
         <br>
         {{ i.content }}
         <br>

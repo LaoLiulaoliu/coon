@@ -8,7 +8,7 @@
         <div class="text">
           <a class="name" target="_blank" title="{{ i.name }}" href="{% url 'company' i.id %}">{{ i.name }}</a>
           <br />
-          <a class="brief" target="_blank" title="{{ i.name }}" href="{% url 'company' i.id %}">{{ i.brief }}</a>
+          <a class="brief" target="_blank" title="{{ i.brief }}" href="{% url 'company' i.id %}">{{ i.brief|truncatechars:40 }}</a>
         </div>
       </li>
     {% endfor %}
