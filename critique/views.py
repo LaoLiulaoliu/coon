@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from critique.dbutils import DBUtils
 
@@ -15,7 +16,15 @@ def homepage(request):
     return render(request, 'homepage.html', {'context': context})
 
 def suggest(request):
+    if request.method == 'POST':
+        opinion = request.POST['opinion']
+        # TODO  need add user id
+        db_u.execute("insert into suggestion (uid, suggestion) values (%s, %s)", (2, opinion))
+        return HttpResponseRedirect('/thanks.html')
     return render(request, 'suggest.html', {})
+
+def thanks(request):
+    return render(request, 'thanks.html', {})
 
 
 def company(request, company_id):

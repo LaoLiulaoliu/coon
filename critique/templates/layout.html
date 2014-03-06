@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="离职点评">
     <meta name="description" content="离职点评，吐槽，离职，企业点评。离开前公司，原因各种各样，你的观点是什么？投资人可以看看自己投资的公司，在员工眼里有什么问题。下个来找工作的人有借鉴。">
-    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    {% block css %}{% endblock %}
+    <script src="/static/js/jquery.min.js"></script>
   </head>
 
   <body>
@@ -19,5 +22,7 @@
       {% block wrapper %}
       {% endblock %}
     </div>
+
+    {% block js %}{% endblock %}
   </body>
 </html>

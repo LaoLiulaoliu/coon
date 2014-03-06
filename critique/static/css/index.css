@@ -90,32 +90,3 @@ img:hover {
   background: url(/static/img/nav_search.png) no-repeat 0 -40px;
 }
 
-
-#content {
-  width: 960px;
-  margin: auto;
-}
-
-#content .company {
-  overflow: hidden;
-}
-
-#content .company .show {
-  float: left;
-  padding: 10px 10px;
-  width: 170px;
-  height: 100px;
-}
-
-#content .company .show .text {
-  cursor: pointer;
-}
-
-#content .company .show .text a {
-  color: #ffffff;
-  text-shadow: 0px 1px 3px #000000;
-}
-
-#content .company .show .text a.brief {
-  text-overflow: ellipsis;
-}

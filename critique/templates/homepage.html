@@ -1,5 +1,9 @@
 {% extends 'header.html' %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/homepage.css"></link>
+{% endblock %}
+
 {% block wrapper %}
   <div id="content">
     <ul class="company">
@@ -8,7 +12,8 @@
         <div class="text">
           <a class="name" target="_blank" title="{{ i.name }}" href="{% url 'company' i.id %}">{{ i.name }}</a>
           <br />
-          <a class="brief" target="_blank" title="{{ i.brief }}" href="{% url 'company' i.id %}">{{ i.brief|truncatechars:40 }}</a>
+          <a class="brief" target="_blank" title="{{ i.name }}" href="{% url 'company' i.id %}">{{ i.brief|truncatechars:40 }}</a>
+          <p class="jsfloat">{{ i.brief|truncatechars:250 }}</p>
         </div>
       </li>
     {% endfor %}
@@ -16,5 +21,7 @@
   </div>
 {% endblock %}
 
-<!--
--->
+
+{% block js %}
+<script src="/static/js/homepage.js"></script>
+{% endblock %}

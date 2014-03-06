@@ -4,11 +4,11 @@
 <link rel="stylesheet" type="text/css" href="/static/css/suggest.css">
 
 <div id="suggestion">
-  <form action="" class="suggest" method="post">
+  <form action="/suggest.html" class="suggest" method="post">
   {% csrf_token %}
     <fieldset>
       <legend>吐槽中含有的建议：</legend>
-      <textarea cols="100" rows="25" class="contractus"></textarea>
+      <textarea name="opinion" cols="100" rows="25" class="contractus"></textarea>
       <br /> <input type="submit" class="submit" value="提交"></input>
     </fieldset>
   </form>

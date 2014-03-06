@@ -5,13 +5,12 @@
   margin: auto;
 }
 
-
 #suggestion .suggest fieldset {
   border: 0px; /* get ugly frame off */
 }
 
 #suggestion .suggest .contractus {
   margin-top: 10px;
-  padding-top: 10px;
+  padding: 10px;
   font-size: 14px;
 }
