@@ -13,10 +13,16 @@
           <a class="name" target="_blank" title="{{ i.name }}" href="{% url 'company' i.id %}">{{ i.name }}</a>
           <br />
           <a class="brief" target="_blank" title="{{ i.name }}" href="{% url 'company' i.id %}">{{ i.brief|truncatechars:40 }}</a>
-          <p class="jsfloat">{{ i.brief|truncatechars:250 }}</p>
+          <div class="jsfloat">
+            <div class="arrow1"></div>
+            <div class="arrow2"></div>
+            <p class="title">{{ i.name }}</p>
+            <p class="description">{{ i.brief|truncatechars:95 }}</p>
+          </div>
         </div>
       </li>
     {% endfor %}
+      <li class="clear"></li>
     </ul>
   </div>
 {% endblock %}

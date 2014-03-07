@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#content .company .text").hover(function() {
-        $(this).find("p.jsfloat").fadeIn(100);
+        $(this).find(".jsfloat").fadeIn(100);
     }, function() {
-        $(this).find("p.jsfloat").fadeOut(100);
+        $(this).find(".jsfloat").fadeOut(100);
     });
 });
