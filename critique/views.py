@@ -7,14 +7,6 @@ db_u = DBUtils('unit')
 db_i = DBUtils('info')
 
 
-def homepage(request):
-    context = []
-    db_u.execute("select id, name, dept, brief, portrait, rating, class, webpage, build_time, address, tag, comments from company order by rating desc;")
-    ret = db_u.fetch()
-    for i in ret.results:
-        context.append( dict( zip(ret.columns, i) ) )
-    return render(request, 'homepage.html', {'context': context})
-
 def suggest(request):
     if request.method == 'POST':
         opinion = request.POST['opinion']
@@ -25,6 +17,15 @@ def suggest(request):
 
 def thanks(request):
     return render(request, 'thanks.html', {})
+
+
+def homepage(request):
+    context = []
+    db_u.execute("select id, name, dept, brief, portrait, rating, class, webpage, build_time, address, tag, comments from company order by rating desc;")
+    ret = db_u.fetch()
+    for i in ret.results:
+        context.append( dict( zip(ret.columns, i) ) )
+    return render(request, 'homepage.html', {'context': context})
 
 
 def company(request, company_id):
@@ -41,10 +42,12 @@ def company(request, company_id):
     return render(request, 'company.html', {'context': context, 'comments': comments})
 
 
+
 def coedit(request, company_id):
     context = {}
     context.update({'id': company_id})
     return render(request, 'coedit.html', context)
+
 
 def pop(requests, company_id, user_id):
     context = {}

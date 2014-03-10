@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'critique',
+    'apps',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,10 +50,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'critique.urls'
+ROOT_URLCONF = 'urls'
 
-WSGI_APPLICATION = 'coon.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
+TEMPLATE_DIRS = (
+    os.path.join(ROOT_DIR, 'templates'),
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -59,7 +64,7 @@ WSGI_APPLICATION = 'coon.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'unit',
+        'NAME':   'unit',
     }
 }
 
@@ -80,4 +85,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+#STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(ROOT_DIR, 'static'),
+)

@@ -11,7 +11,7 @@
       <a class="img" title="{{ context.name }}" {% if context.portrait %} href="{{ context.portrait }}" {% endif %}>
         <img class="company-logo" width="200px" height="100px" {% if context.portrait %} src="{{ context.portrait }}" {% endif %} alt="{{ context.name }}" />
       </a>
-      <p class="coedit"><a href="{% url 'coedit' context.id %}">更新描述或封面</a></p>
+      <p class="coedit"><a href="{% url 'critique:coedit' context.id %}">更新描述或封面</a></p>
     </div>
 
     <div class="description">
@@ -51,6 +51,7 @@
   <div class="reviews">
     <div class="title">吐槽。。。</div>
     <div class="new_review">
+{#      <a href="{% url 'critique:pop' context.id user.id %}">我来点评</a> #}
       <a href="">我来点评</a>
     </div>
     <hr />

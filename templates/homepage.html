@@ -10,9 +10,9 @@
     {% for i in context %}
       <li class="show">
         <div class="text">
-          <a class="name" target="_blank" title="{{ i.name }}" href="{% url 'company' i.id %}">{{ i.name }}</a>
+          <a class="name" target="_blank" title="{{ i.name }}" href="{% url 'critique:company' i.id %}">{{ i.name }}</a>
           <br />
-          <a class="brief" target="_blank" title="{{ i.name }}" href="{% url 'company' i.id %}">{{ i.brief|truncatechars:40 }}</a>
+          <a class="brief" target="_blank" title="{{ i.name }}" href="{% url 'critique:company' i.id %}">{{ i.brief|truncatechars:40 }}</a>
           <div class="jsfloat">
             <div class="arrow1"></div>
             <div class="arrow2"></div>
@@ -29,5 +29,6 @@
 
 
 {% block js %}
+<script src="/static/js/jquery.min.js"></script>
 <script src="/static/js/homepage.js"></script>
 {% endblock %}
