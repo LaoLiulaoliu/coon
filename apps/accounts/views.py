@@ -10,7 +10,7 @@ from forms import registForm
 def regist(request):
     if request.method == 'GET':
         form = registForm()
-        return render('x.html', {})
+        return render(request, 'regist.html', {})
 
 @csrf_protect
 def login(request):

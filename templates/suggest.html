@@ -1,8 +1,10 @@
 {% extends 'header.html' %}
 
-{% block wrapper %}
+{% block css %}
 <link rel="stylesheet" type="text/css" href="/static/css/suggest.css">
+{% endblock %}
 
+{% block wrapper %}
 <div id="suggestion">
   <form action="/suggest.html" class="suggest" method="post" onsubmit="return false;">
   {% csrf_token %}

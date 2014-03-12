@@ -36,10 +36,19 @@ img:hover {
   margin: 0 50px;
 }
 
-#topnav .nav-li .nav-link {
+#topnav .ul-account .li-account {
+  float: right;
+  padding: 12px 15px 15px 15px; /* hover range can be extend */
+  margin: 0 50px;
+  font-size: 14px;
+}
+
+#topnav .nav-li .nav-link,
+#topnav .ul-account .li-account .a-account {
   color: #ccc;
 }
-#topnav .nav-li:hover .nav-link {
+#topnav .nav-li:hover .nav-link,
+#topnav .ul-account .li-account:hover .a-account {
   color: #fff;
 }
 

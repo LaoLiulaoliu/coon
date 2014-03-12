@@ -6,7 +6,7 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('apps',
 
-    ('^register/$', 'accounts.views.regist'),
+    ('^regist/$', 'accounts.views.regist'),
     ('^login/$', 'accounts.views.login'),
 #    ('^logout/$', 'accounts.views.logout'),
 #    (r'^active/(\d{1,10})/(.*)/$', 'accounts.views.active'),
