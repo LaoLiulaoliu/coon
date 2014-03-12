@@ -1,10 +1,18 @@
 import time
 import hashlib
+
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
 
+from forms import registForm
+
+@csrf_protect
 def regist(request):
-    pass
+    if request.method == 'GET':
+        form = registForm()
+        return render('x.html', {})
 
+@csrf_protect
 def login(request):
     pass
 

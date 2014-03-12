@@ -4,13 +4,21 @@
 <link rel="stylesheet" type="text/css" href="/static/css/suggest.css">
 
 <div id="suggestion">
-  <form action="/suggest.html" class="suggest" method="post">
+  <form action="/suggest.html" class="suggest" method="post" onsubmit="return false;">
   {% csrf_token %}
     <fieldset>
       <legend>吐槽中含有的建议：</legend>
-      <textarea name="opinion" cols="100" rows="25" class="contractus"></textarea>
-      <br /> <input type="submit" class="submit" value="提交"></input>
+      <textarea name="opinion" cols="90" rows="25" class="contractus"></textarea>
+      <br /><input type="submit" class="submit" value="提交">
     </fieldset>
   </form>
+  <div class="jump" style="display: none;">
+    谢谢您的建议^_^ ......<span id="jump"></span>秒后将自动跳转到网站首页
+  </div>
 </div>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/suggest.js"></script>
 {% endblock %}

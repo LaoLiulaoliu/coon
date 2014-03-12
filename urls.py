@@ -11,7 +11,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
 
     url(r'^suggest.html', views.suggest, name='suggest'),
-    url(r'^thanks.html', views.thanks, name='thanks'),
 
     url(r'^company/', include('critique.urls', namespace='critique')),
     url(r'^accounts/', include('apps.accounts.urls')),
