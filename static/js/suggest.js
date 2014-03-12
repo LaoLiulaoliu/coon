@@ -20,6 +20,7 @@ $(document).ready(function() {
                 if (data.status === 1) {
                     $('#suggestion .suggest').hide();
                     $('#suggestion .jump').show();
+                    $('#suggestion .jump').css({'font-size': '140%', 'text-align': 'center'});
                     countDown(5, '/');
                 }
         });
