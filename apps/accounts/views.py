@@ -11,6 +11,8 @@ def regist(request):
     if request.method == 'GET':
         form = registForm()
         return render(request, 'regist.html', {})
+    elif request.method == 'POST':
+        pass
 
 @csrf_protect
 def login(request):

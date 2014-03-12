@@ -10,7 +10,7 @@
   {% csrf_token %}
     <fieldset>
       <legend>吐槽中含有的建议：</legend>
-      <textarea name="opinion" cols="90" rows="25" class="contractus"></textarea>
+      <textarea name="opinion" cols="90" rows="25" class="contractus" maxlength="1024"></textarea>
       <br /><input type="submit" class="submit" value="提交">
     </fieldset>
   </form>
