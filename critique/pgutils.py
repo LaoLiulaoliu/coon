@@ -103,3 +103,60 @@ class DBUtils(object):
                 cur.execute(query)
 
 
+class DataUtils(object):
+    """
+        read data from data file, not postgresql.
+
+        This class can parse `select`
+    """
+    def __init__(self, dbname='postgres'):
+        self.dbname = dbname
+
+    def execute(self, query, vars=None, result=None):
+        results = []
+        if vars:
+            query = query % vars
+        query = query.lower()
+
+        # from the query string, get table name
+        field, table = query.split('from')
+        table_name = table.strip().split()[0]
+
+        # get query condition
+        keys, values = [], []
+        if 'where' in table and '=' in table:
+            table = table.split('order by')[0].split('group by')[0]
+            conditions = table.split('where')[1].strip().split(',')
+            conditions = map(lambda x: x.strip(), conditions)
+            for condition in conditions:
+                key, value = condition.split('=')
+                keys.append(key.strip())
+                values.append(value.strip(';').strip())
+
+        # get query field
+        fields = field.lstrip('select').strip().split(',')
+        fields = map(lambda x: x.strip(), fields)
+
+        # read data from data file, based on query field return results
+        m = __import__('critique.data', fromlist=['data'])
+        for line in m.data[table_name]:
+
+            skip_flag = True
+            for i, key in enumerate(keys):
+                if str(line[key]) != values[i]:
+                    break
+            else:
+                skip_flag = False
+            if skip_flag: continue
+
+
+            record = []
+            for field in fields:
+                if field in line:
+                    record.append(line[field])
+                else:
+                    record.append('')
+            results.append( tuple(record) )
+
+        return QueryResult(fields, results)
+

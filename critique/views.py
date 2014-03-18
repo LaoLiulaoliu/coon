@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 import json
 
-from critique.dbutils import DBUtils
+from critique.pgutils import DBUtils
+#from critique.pgutils import DataUtils as DBUtils
 
 db_u = DBUtils('unit')
 db_i = DBUtils('info')

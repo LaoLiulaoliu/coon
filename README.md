@@ -18,3 +18,10 @@
 4. 企业不愿意自己有负面评价。
 5. 大家有可能在上面形成相互谩骂。
 6. 只有很多人都愿意去发表自己的观点，这个网站才有点价值。
+
+
+程序说明
+--------------
++ 加入数据文件，程序从数据文件倒入数据库
++ If you don't install postgresql, django can read data from datafile with one line code added.
+
