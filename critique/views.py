@@ -13,7 +13,6 @@ db_i = DBUtils('info')
 def suggest(request):
     if request.method == 'POST':
         opinion = request.POST['opinion']
-        print opinion
         # TODO  need add user id
         db_u.execute("insert into suggestion (uid, suggestion) values (%s, %s)", (2, opinion))
         data = {'status': 1}

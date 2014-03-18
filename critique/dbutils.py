@@ -14,7 +14,7 @@ class DBUtils(object):
 
     def __init__(self, dbname='postgres',
                  user='bishop',
-                 poolsize=10,
+                 poolsize=3,
                  maxretries=5,
                  fetch_size=400):
         self.dbname = dbname
@@ -33,7 +33,7 @@ class DBUtils(object):
     def get(self):
         if self.queue.empty() and self.connection_in_use < self.poolsize:
             self.connection_in_use += 1
-            return psycopg2.connect(database=self.dbname, user=self.user)
+            return _create_connection()
         return self.queue.get()
 
     def put(self, conn):
@@ -41,6 +41,10 @@ class DBUtils(object):
             conn.close()
         self.queue.put(conn)
 
+    def _create_connection(self):
+        """ If we hava several hosts, we can random choice one to connect
+        """
+        return psycopg2.connect(database=self.dbname, user=self.user)
 
     @contextmanager
     def connection(self):
