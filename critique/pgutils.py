@@ -152,10 +152,8 @@ class DataUtils(object):
 
             record = []
             for field in fields:
-                if field in line:
-                    record.append(line[field])
-                else:
-                    record.append('')
+                temp = line[field] if field in line else ''
+                record.append(temp)
             results.append( tuple(record) )
 
         return QueryResult(fields, results)
