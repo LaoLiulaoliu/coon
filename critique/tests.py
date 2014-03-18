@@ -11,6 +11,8 @@ db_i = DBUtils('info')
 #db_u.execute("insert into person (email, password) values (%s, %s)", ('q_0_0_p@yahoo.com', 'asdf1234'))
 
 #db_u.execute("insert into company (name, brief, dept) values (%(name)s, %(brief)s, %(dept)s)",
+#             {'name': '盛大', 'brief': '互联网文化内容提供商', 'dept': ['盛大网络','盛大文学','盛大游戏','酷6传媒',]})
+#db_u.execute("insert into company (name, brief, dept) values (%(name)s, %(brief)s, %(dept)s)",
 #        {'name': 'favbuy', 'brief': 'A taobao data company', 'dept': []})
 #db_u.execute("insert into company (name, brief, dept) values (%(name)s, %(brief)s, %(dept)s)",
 #        {'name': '南京烽火', 'brief': '电信服务提供商', 'dept': []})
@@ -36,17 +38,14 @@ db_i = DBUtils('info')
 
 
 db_i.execute("insert into comment (cid, uid, rating, nick, content) values (3, 1, 3, 'lotus', '百度的搜索引擎技术还不错，但和google没得比。这么大一家公司，居然很少有创新和颠覆性的行为，只是吃着老本，搞一搞关系。');")
-db_i.commit()
-db_i.close()
+
 
 # [('q_0_0_p@163.com', datetime.datetime(2014, 3, 1, 19, 40, 35, 343862)), ('email', datetime())]
-# db_u.execute("select email, regist_time from person;")
+# db_u.execute("select email, regist_time from person;", result=True)
 
-db_u.execute("select name, dept, brief, portrait, rating, class, webpage, build_time, address, tag from company;")
+db_u.execute("select name, dept, brief, portrait, rating, class, webpage, build_time, address, tag from company;", result=True)
 ret = db_u.fetch()
 print isinstance(ret.results[0][0].decode('utf-8'), unicode)
 #for i in ret.results:
 #    print dict(zip(ret.columns, i))
 
-db_u.commit()
-db_u.close()
