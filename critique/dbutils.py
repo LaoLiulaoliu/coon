@@ -33,7 +33,7 @@ class DBUtils(object):
     def get(self):
         if self.queue.empty() and self.connection_in_use < self.poolsize:
             self.connection_in_use += 1
-            return _create_connection()
+            return self._create_connection()
         return self.queue.get()
 
     def put(self, conn):
