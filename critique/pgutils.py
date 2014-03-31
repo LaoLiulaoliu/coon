@@ -28,10 +28,11 @@ class DBUtils(object):
 
     def clear(self):
         while not self.queue.empty():
+            self.connection_in_use -= 1
             self.queue.get().close()
 
     def get(self):
-        if self.queue.empty() and self.connection_in_use < self.poolsize:
+        if self.queue.empty() or self.connection_in_use < self.poolsize:
             self.connection_in_use += 1
             return self._create_connection()
         return self.queue.get()
